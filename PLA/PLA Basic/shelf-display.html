@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Shelf display of all Bambu Lab Basic PLA colors, ordered by hue and lightness.">
+<title>Bambu Lab Basic PLA — Shelf Display</title>
+<style>
+  :root {
+    --bg:#f4f1ec; --panel:#ebe6dd; --ink:#211f1b; --muted:#6f6a60;
+    --line:rgba(20,18,14,.12); --ledge:#d8d1c4; --ledge-edge:#c3bbaa;
+    --accent:#00863a; --shadow:rgba(40,34,24,.22);
+    --card-w:150px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#16150f; --panel:#1e1c15; --ink:#f2efe6; --muted:#a49d8c;
+      --line:rgba(255,250,235,.10); --ledge:#26241b; --ledge-edge:#0d0c08;
+      --accent:#31d67a; --shadow:rgba(0,0,0,.55);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:#f4f1ec; --panel:#ebe6dd; --ink:#211f1b; --muted:#6f6a60;
+    --line:rgba(20,18,14,.12); --ledge:#d8d1c4; --ledge-edge:#c3bbaa;
+    --accent:#00863a; --shadow:rgba(40,34,24,.22);
+  }
+  :root[data-theme="dark"] {
+    --bg:#16150f; --panel:#1e1c15; --ink:#f2efe6; --muted:#a49d8c;
+    --line:rgba(255,250,235,.10); --ledge:#26241b; --ledge-edge:#0d0c08;
+    --accent:#31d67a; --shadow:rgba(0,0,0,.55);
+  }
+
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+  }
+  .wrap { max-width:1180px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,44px) 88px; }
+
+  /* ---- Masthead ---- */
+  .mast { border-bottom:1px solid var(--line); padding-bottom:26px; margin-bottom:14px; }
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:9px;
+    font:600 12px/1 ui-monospace,"SF Mono",Menlo,monospace;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--accent);
+  }
+  .eyebrow::before { content:""; width:26px; height:2px; background:var(--accent); }
+  h1 {
+    font-size:clamp(38px,7vw,74px); line-height:.96; margin:.28em 0 .12em;
+    font-weight:800; letter-spacing:-.03em; text-wrap:balance;
+  }
+  h1 em { font-style:normal; color:var(--muted); font-weight:300; }
+  .lede { max-width:60ch; color:var(--muted); font-size:clamp(15px,1.6vw,17px); margin:0; }
+  .lede b { color:var(--ink); font-weight:600; }
+
+  /* ---- Shelves ---- */
+  .shelf { margin-top:clamp(38px,5vw,60px); }
+  .shelf-head { display:flex; align-items:baseline; gap:14px; margin-bottom:20px; }
+  .shelf-head h2 {
+    margin:0; font-size:15px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .shelf-head p { margin:0; color:var(--muted); font-size:13.5px; flex:1; }
+  .shelf-head .tally {
+    font:600 12px/1 ui-monospace,monospace; color:var(--muted);
+    border:1px solid var(--line); border-radius:20px; padding:5px 9px;
+  }
+
+  .row {
+    display:flex; flex-wrap:wrap; gap:clamp(14px,2.4vw,26px);
+    align-items:flex-end; padding:0 4px;
+  }
+
+  .spool {
+    margin:0; width:var(--card-w); display:flex; flex-direction:column;
+    align-items:center; gap:13px;
+    animation:rise .6s cubic-bezier(.2,.7,.2,1) both;
+    animation-delay:calc(var(--i) * 28ms);
+  }
+  @keyframes rise { from { opacity:0; transform:translateY(14px); } }
+
+  .coin {
+    --d:calc(var(--card-w) - 22px);
+    width:var(--d); height:var(--d); border-radius:50%;
+    position:relative; display:grid; place-items:center;
+    /* wound-filament rings + base color */
+    background:
+      repeating-radial-gradient(circle at 50% 50%,
+        var(--c-dark) 0 2px, var(--c) 2px 5px),
+      var(--c);
+    box-shadow:
+      inset 0 0 0 6px var(--c-rim),
+      inset 0 3px 10px rgba(255,255,255,.30),
+      inset 0 -10px 22px rgba(0,0,0,.30),
+      0 1px 0 var(--edge);
+    outline:1px solid var(--edge); outline-offset:-1px;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+    z-index:1;
+  }
+  /* glossy sweep */
+  .coin::before {
+    content:""; position:absolute; inset:6px; border-radius:50%;
+    background:linear-gradient(145deg, rgba(255,255,255,.34), rgba(255,255,255,0) 42%);
+    pointer-events:none;
+  }
+  .hub {
+    width:32%; height:32%; border-radius:50%;
+    background:radial-gradient(circle at 42% 38%, #efe4cb, #c9b48f 62%, #a68f66);
+    box-shadow:inset 0 0 0 2px rgba(0,0,0,.12), 0 1px 3px rgba(0,0,0,.28);
+    display:grid; place-items:center; position:relative;
+  }
+  .hub::after {
+    content:""; width:34%; height:34%; border-radius:50%;
+    background:radial-gradient(circle at 50% 40%, #4a4640, #17150f);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,.7);
+  }
+
+  .spool:hover .coin {
+    transform:translateY(-9px) scale(1.015);
+    box-shadow:
+      inset 0 0 0 6px var(--c-rim),
+      inset 0 3px 10px rgba(255,255,255,.34),
+      inset 0 -10px 22px rgba(0,0,0,.32),
+      0 18px 26px -12px var(--shadow), 0 1px 0 var(--edge);
+  }
+
+  figcaption { text-align:center; display:flex; flex-direction:column; gap:3px; }
+  .cname { font-weight:650; font-size:14px; letter-spacing:-.01em; }
+  .cmeta {
+    display:flex; gap:8px; justify-content:center; align-items:center;
+    font:500 11px/1 ui-monospace,"SF Mono",Menlo,monospace; color:var(--muted);
+  }
+  .cmeta .hex { text-transform:uppercase; }
+  .cmeta .code::after { content:"·"; margin-left:8px; opacity:.55; }
+
+  .ledge {
+    height:12px; margin-top:18px; border-radius:3px;
+    background:linear-gradient(180deg, var(--ledge), var(--ledge-edge));
+    box-shadow:0 14px 22px -14px var(--shadow), inset 0 1px 0 rgba(255,255,255,.18);
+    position:relative; z-index:0;
+  }
+
+  footer {
+    margin-top:60px; padding-top:22px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between;
+    color:var(--muted); font-size:12.5px;
+  }
+  footer code { font-family:ui-monospace,monospace; color:var(--ink); }
+
+  @media (prefers-reduced-motion:reduce) {
+    .spool { animation:none; } .coin { transition:none; }
+  }
+  @media (max-width:520px) {
+    :root { --card-w:132px; }
+    .row { justify-content:center; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <span class="eyebrow">Bambu Lab · Filament Reference</span>
+    <h1>Basic PLA <em>Shelf Display</em></h1>
+    <p class="lede">All <b>31 standard colors</b> of Bambu Lab Basic PLA, arranged the way you'd want them on a maker's wall — neutrals graded light to dark, then every hue walked around the color wheel from red. Codes and hex values are read straight from the spools' RFID tag dumps in this library.</p>
+  </header>
+
+    <section class="shelf">
+      <header class="shelf-head">
+        <h2>Neutrals</h2>
+        <p>White through black, sorted by lightness</p>
+        <span class="tally">8</span>
+      </header>
+      <div class="row">
+      <figure class="spool" style="--c:#FFFFFF;--c-dark:#CCCCCC;--c-light:#FFFFFF;--c-rim:#9E9E9E;--edge:rgba(0,0,0,.28);--i:0">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Jade White</span>
+          <span class="cmeta"><span class="code">10100</span><span class="hex">#FFFFFF</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#F7E6DE;--c-dark:#C6B8B2;--c-light:#F8EAE3;--c-rim:#998F8A;--edge:rgba(0,0,0,.28);--i:1">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Beige</span>
+          <span class="cmeta"><span class="code">10201</span><span class="hex">#F7E6DE</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#D1D3D5;--c-dark:#A7A9AA;--c-light:#D7D9DB;--c-rim:#828384;--edge:rgba(0,0,0,.28);--i:2">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Light Gray</span>
+          <span class="cmeta"><span class="code">10104</span><span class="hex">#D1D3D5</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#A6A9AA;--c-dark:#858788;--c-light:#B2B5B6;--c-rim:#676969;--edge:rgba(255,255,255,.10);--i:3">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Silver</span>
+          <span class="cmeta"><span class="code">10102</span><span class="hex">#A6A9AA</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#8E9089;--c-dark:#72736E;--c-light:#9EA09A;--c-rim:#585955;--edge:rgba(255,255,255,.10);--i:4">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Gray</span>
+          <span class="cmeta"><span class="code">10103</span><span class="hex">#8E9089</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#5B6579;--c-dark:#495161;--c-light:#727B8C;--c-rim:#383F4B;--edge:rgba(255,255,255,.10);--i:5">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Blue Gray</span>
+          <span class="cmeta"><span class="code">10602</span><span class="hex">#5B6579</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#545454;--c-dark:#434343;--c-light:#6C6C6C;--c-rim:#343434;--edge:rgba(255,255,255,.10);--i:6">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Dark Gray</span>
+          <span class="cmeta"><span class="code">10105</span><span class="hex">#545454</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#000000;--c-dark:#000000;--c-light:#242424;--c-rim:#000000;--edge:rgba(255,255,255,.10);--i:7">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Black</span>
+          <span class="cmeta"><span class="code">10101</span><span class="hex">#000000</span></span>
+        </figcaption>
+      </figure>
+      </div>
+      <div class="ledge"></div>
+    </section>
+    <section class="shelf">
+      <header class="shelf-head">
+        <h2>Spectrum</h2>
+        <p>Every hue walked around the color wheel from red, earth tones and all</p>
+        <span class="tally">23</span>
+      </header>
+      <div class="row">
+      <figure class="spool" style="--c:#C12E1F;--c-dark:#9A2519;--c-light:#CA4B3E;--c-rim:#781D13;--edge:rgba(255,255,255,.10);--i:8">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Red</span>
+          <span class="cmeta"><span class="code">10200</span><span class="hex">#C12E1F</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#9D432C;--c-dark:#7E3623;--c-light:#AB5D4A;--c-rim:#612A1B;--edge:rgba(255,255,255,.10);--i:9">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Brown</span>
+          <span class="cmeta"><span class="code">10800</span><span class="hex">#9D432C</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#FF6A13;--c-dark:#CC550F;--c-light:#FF7F34;--c-rim:#9E420C;--edge:rgba(255,255,255,.10);--i:10">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Orange</span>
+          <span class="cmeta"><span class="code">10300</span><span class="hex">#FF6A13</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#6F5034;--c-dark:#59402A;--c-light:#836850;--c-rim:#453220;--edge:rgba(255,255,255,.10);--i:11">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Cocoa Brown</span>
+          <span class="cmeta"><span class="code">10802</span><span class="hex">#6F5034</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#FF9016;--c-dark:#CC7312;--c-light:#FFA037;--c-rim:#9E590E;--edge:rgba(255,255,255,.10);--i:12">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Pumpkin Orange</span>
+          <span class="cmeta"><span class="code">10301</span><span class="hex">#FF9016</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#E4BD68;--c-dark:#B69753;--c-light:#E8C67D;--c-rim:#8D7540;--edge:rgba(0,0,0,.28);--i:13">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Gold</span>
+          <span class="cmeta"><span class="code">10401</span><span class="hex">#E4BD68</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#FEC600;--c-dark:#CB9E00;--c-light:#FECE24;--c-rim:#9D7B00;--edge:rgba(0,0,0,.28);--i:14">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Sunflower Yellow</span>
+          <span class="cmeta"><span class="code">10402</span><span class="hex">#FEC600</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#847D48;--c-dark:#6A643A;--c-light:#958F62;--c-rim:#524E2D;--edge:rgba(255,255,255,.10);--i:15">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Bronze</span>
+          <span class="cmeta"><span class="code">10801</span><span class="hex">#847D48</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#F4EE2A;--c-dark:#C3BE22;--c-light:#F6F048;--c-rim:#97941A;--edge:rgba(0,0,0,.28);--i:16">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Yellow</span>
+          <span class="cmeta"><span class="code">10400</span><span class="hex">#F4EE2A</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#BECF00;--c-dark:#98A600;--c-light:#C7D624;--c-rim:#768000;--edge:rgba(0,0,0,.28);--i:17">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Bright Green</span>
+          <span class="cmeta"><span class="code">10503</span><span class="hex">#BECF00</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#3F8E43;--c-dark:#327236;--c-light:#5A9E5D;--c-rim:#27582A;--edge:rgba(255,255,255,.10);--i:18">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Mistletoe Green</span>
+          <span class="cmeta"><span class="code">10502</span><span class="hex">#3F8E43</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#00AE42;--c-dark:#008B35;--c-light:#24B95C;--c-rim:#006C29;--edge:rgba(255,255,255,.10);--i:19">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Bambu Green</span>
+          <span class="cmeta"><span class="code">10501</span><span class="hex">#00AE42</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#005F61;--c-dark:#004C4E;--c-light:#247577;--c-rim:#003B3C;--edge:rgba(255,255,255,.10);--i:20">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Green</span>
+          <span class="cmeta"><span class="code">10500</span><span class="hex">#005F61</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#00B1B7;--c-dark:#008E92;--c-light:#24BCC1;--c-rim:#006E71;--edge:rgba(255,255,255,.10);--i:21">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Turquoise</span>
+          <span class="cmeta"><span class="code">10605</span><span class="hex">#00B1B7</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#0086D6;--c-dark:#006BAB;--c-light:#2497DC;--c-rim:#005385;--edge:rgba(255,255,255,.10);--i:22">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Cyan</span>
+          <span class="cmeta"><span class="code">10603</span><span class="hex">#0086D6</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#0056B8;--c-dark:#004593;--c-light:#246EC2;--c-rim:#003572;--edge:rgba(255,255,255,.10);--i:23">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Cobalt Blue</span>
+          <span class="cmeta"><span class="code">10604</span><span class="hex">#0056B8</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#0A2989;--c-dark:#08216E;--c-light:#2C479A;--c-rim:#061955;--edge:rgba(255,255,255,.10);--i:24">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Blue</span>
+          <span class="cmeta"><span class="code">10601</span><span class="hex">#0A2989</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#5E43B7;--c-dark:#4B3692;--c-light:#755DC1;--c-rim:#3A2A71;--edge:rgba(255,255,255,.10);--i:25">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Purple</span>
+          <span class="cmeta"><span class="code">10700</span><span class="hex">#5E43B7</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#482960;--c-dark:#3A214D;--c-light:#624776;--c-rim:#2D193C;--edge:rgba(255,255,255,.10);--i:26">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Indigo Purple</span>
+          <span class="cmeta"><span class="code">10701</span><span class="hex">#482960</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#EC008C;--c-dark:#BD0070;--c-light:#EF249C;--c-rim:#920057;--edge:rgba(255,255,255,.10);--i:27">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Magenta</span>
+          <span class="cmeta"><span class="code">10202</span><span class="hex">#EC008C</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#F5547C;--c-dark:#C44363;--c-light:#F66C8E;--c-rim:#98344D;--edge:rgba(255,255,255,.10);--i:28">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Hot Pink</span>
+          <span class="cmeta"><span class="code">10204</span><span class="hex">#F5547C</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#F55A74;--c-dark:#C4485D;--c-light:#F67187;--c-rim:#983848;--edge:rgba(255,255,255,.10);--i:29">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Pink</span>
+          <span class="cmeta"><span class="code">10203</span><span class="hex">#F55A74</span></span>
+        </figcaption>
+      </figure>
+      <figure class="spool" style="--c:#9D2235;--c-dark:#7E1B2A;--c-light:#AB4151;--c-rim:#611521;--edge:rgba(255,255,255,.10);--i:30">
+        <div class="coin"><span class="hub"></span></div>
+        <figcaption>
+          <span class="cname">Maroon Red</span>
+          <span class="cmeta"><span class="code">10205</span><span class="hex">#9D2235</span></span>
+        </figcaption>
+      </figure>
+      </div>
+      <div class="ledge"></div>
+    </section>
+
+  <footer>
+    <span>Bambu Lab Basic PLA · 31 colors · display order by hue &amp; lightness</span>
+    <span>Colors decoded from RFID tags · <code>filament_color</code> field</span>
+  </footer>
+</div>
+
+<script>
+  // Nudge the shelf reveal only after fonts settle; harmless if it runs immediately.
+  document.documentElement.dataset.ready = "1";
+</script>
+</body>
+</html>
