@@ -1,0 +1,73 @@
+{
+  "UID": "ACB5BB39",
+  "FileType": "mifare classic 1k keys",
+  "TotalSectors": 16,
+  "KeySizeBytes": 6,
+  "SectorKeys": {
+    "0": {
+      "KeyA": "82FB488290D1",
+      "KeyB": "45BC21EF818A"
+    },
+    "1": {
+      "KeyA": "1AFB1D1B0AC5",
+      "KeyB": "05BC0DF63BAE"
+    },
+    "2": {
+      "KeyA": "B6428EB4D624",
+      "KeyB": "2B444ABF9790"
+    },
+    "3": {
+      "KeyA": "E6E5C0AF1B28",
+      "KeyB": "1E4A76A996BA"
+    },
+    "4": {
+      "KeyA": "E9B3A94F223F",
+      "KeyB": "2ABECE2AEBA3"
+    },
+    "5": {
+      "KeyA": "D85F998C5FA4",
+      "KeyB": "D11D3190AE89"
+    },
+    "6": {
+      "KeyA": "36D25DF38271",
+      "KeyB": "1480A5A9941E"
+    },
+    "7": {
+      "KeyA": "BE4851C48753",
+      "KeyB": "7C37FC50389D"
+    },
+    "8": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "9": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "10": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "11": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "12": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "13": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "14": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "15": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    }
+  },
+  "SourceFile": "PETG/PETG Basic/Black/ACB5BB39/hf-mf-ACB5BB39-key.bin"
+}

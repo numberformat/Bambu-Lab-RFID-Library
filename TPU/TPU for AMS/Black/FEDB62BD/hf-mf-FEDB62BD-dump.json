@@ -1,12 +1,17 @@
 {
-  "Created": "bambuman",
+  "Created": "queengooborg/Bambu-Lab-RFID-Library/convert.py",
   "FileType": "mfc v2",
   "Card": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
     "UID": "FEDB62BD",
+========
+    "UID": "770B642A",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
     "ATQA": "0400",
     "SAK": "08"
   },
   "blocks": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
     "0": "FEDB62BDFA08040005004C64647BD290",
     "1": "5530322D4B3000004746553032000000",
     "2": "5450552D414D53000000000000000000",
@@ -76,6 +81,77 @@
     "0": {
       "KeyA": "638FF78B768A",
       "KeyB": "D593D283812C",
+========
+    "0": "770B642A320804000573CE8976169490",
+    "1": "4130312D4B3100004746413031000000",
+    "2": "504C4100000000000000000000000000",
+    "3": "643FBF37BA6487878769658804D0F8E9",
+    "4": "504C41204D6174746500000000000000",
+    "5": "000000FFE80300000000E03F00000000",
+    "6": "3700080000000000E600BE0000000000",
+    "7": "009EF24E884D87878769FFC58EE92AC8",
+    "8": "A4388813E803E803CDCC4C3FCDCC4C3E",
+    "9": "ADE33B280B3E4D25B3626B658F497F7F",
+    "10": "000000003B0B00000000000000000000",
+    "11": "D6FFC38E6DB2878787692FA88F2C61CD",
+    "12": "323032355F30365F30375F31395F3136",
+    "13": "32303235303630370000000000000000",
+    "14": "000000003B0100000000000000000000",
+    "15": "A26D0F49233687878769682E25D0B20B",
+    "16": "02000100000000000000000000000000",
+    "17": "00000000000000000000000000000000",
+    "18": "00000000000000000000000000000000",
+    "19": "437982C27965878787699A0A3400E5B5",
+    "20": "00000000000000000000000000000000",
+    "21": "00000000000000000000000000000000",
+    "22": "00000000000000000000000000000000",
+    "23": "430A3CEA62EC878787693CFCDE2926D7",
+    "24": "00000000000000000000000000000000",
+    "25": "00000000000000000000000000000000",
+    "26": "00000000000000000000000000000000",
+    "27": "2B76122B6FA1878787693BD2009E66C7",
+    "28": "00000000000000000000000000000000",
+    "29": "00000000000000000000000000000000",
+    "30": "00000000000000000000000000000000",
+    "31": "8F5642BE7A86878787695ACC58A4F066",
+    "32": "00000000000000000000000000000000",
+    "33": "00000000000000000000000000000000",
+    "34": "00000000000000000000000000000000",
+    "35": "F13D70F8332D878787698AE27CAFB02B",
+    "36": "00000000000000000000000000000000",
+    "37": "00000000000000000000000000000000",
+    "38": "00000000000000000000000000000000",
+    "39": "E6A9318B6D6987878769977F08CE2DDD",
+    "40": "01000000000000000000000000000000",
+    "41": "00000000000000000000000000000000",
+    "42": "4962450F5991E5E953850F2378B51E87",
+    "43": "4C3DB8AC7673878787698CC8D28FB55A",
+    "44": "F30B23A7E2FEF6096D4F72B351CB8CA9",
+    "45": "9F3C7931A9660B45A6722E455B32947B",
+    "46": "03D8BFEB0FD2223FA86DE6FF5955858C",
+    "47": "8DA10D4A3B01878787696BADA721A01F",
+    "48": "D2F82800F65BBA039F5C005B58330314",
+    "49": "553DBE8670B1857F3A79BCB49EE292EC",
+    "50": "1DA198E53141680CBF33E01933ACD677",
+    "51": "A3290BEBFE3F87878769668569793517",
+    "52": "5A132A30DCC968E345EF916D0372A534",
+    "53": "E0C382D9A417E12949191898A0C44547",
+    "54": "57F9E590EBB4CB7AF02B7A3FD7987F23",
+    "55": "F2348EB75ADE87878769D4E6141B9E7F",
+    "56": "5B623E19A9F8A75C85A0BD244517EAFB",
+    "57": "A6E047A2687078E323B3C5BE49EAA7CF",
+    "58": "3A2BF188C65AE6E6EC3E6264284CEFDE",
+    "59": "AF7C98D5E9D687878769556CFE293715",
+    "60": "6468BD6002822B40F7AC56ABB6141266",
+    "61": "0D1EC4C0333CC6EF2FCD767E9920F8D6",
+    "62": "EEF67FEFFE2B35C89560FB3DA251BBA2",
+    "63": "333CD20E6A3F87878769EAB2E2AFCBAB"
+  },
+  "SectorKeys": {
+    "0": {
+      "KeyA": "643FBF37BA64",
+      "KeyB": "658804D0F8E9",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block0": "read AB",
@@ -86,8 +162,13 @@
       }
     },
     "1": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "7B01AC56582D",
       "KeyB": "687708B20FDC",
+========
+      "KeyA": "009EF24E884D",
+      "KeyB": "FFC58EE92AC8",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block4": "read AB",
@@ -98,8 +179,13 @@
       }
     },
     "2": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "52A464EEC4AB",
       "KeyB": "47F1F83D7CA5",
+========
+      "KeyA": "D6FFC38E6DB2",
+      "KeyB": "2FA88F2C61CD",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block8": "read AB",
@@ -110,8 +196,13 @@
       }
     },
     "3": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "7A3657B8A674",
       "KeyB": "46660CBC4AE0",
+========
+      "KeyA": "A26D0F492336",
+      "KeyB": "682E25D0B20B",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block12": "read AB",
@@ -122,8 +213,13 @@
       }
     },
     "4": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "EE406412CF50",
       "KeyB": "D6162814EAD8",
+========
+      "KeyA": "437982C27965",
+      "KeyB": "9A0A3400E5B5",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block16": "read AB",
@@ -134,8 +230,13 @@
       }
     },
     "5": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "7036B09B270C",
       "KeyB": "C83EE38ECE32",
+========
+      "KeyA": "430A3CEA62EC",
+      "KeyB": "3CFCDE2926D7",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block20": "read AB",
@@ -146,8 +247,13 @@
       }
     },
     "6": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "9F612D55617F",
       "KeyB": "759A28261597",
+========
+      "KeyA": "2B76122B6FA1",
+      "KeyB": "3BD2009E66C7",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block24": "read AB",
@@ -158,8 +264,13 @@
       }
     },
     "7": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "8561D5CFF163",
       "KeyB": "593217128549",
+========
+      "KeyA": "8F5642BE7A86",
+      "KeyB": "5ACC58A4F066",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block28": "read AB",
@@ -170,8 +281,13 @@
       }
     },
     "8": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "590B3806D222",
       "KeyB": "913DC2B0D00F",
+========
+      "KeyA": "F13D70F8332D",
+      "KeyB": "8AE27CAFB02B",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block32": "read AB",
@@ -182,8 +298,13 @@
       }
     },
     "9": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "09CA46D29EFA",
       "KeyB": "70F9D7E456FF",
+========
+      "KeyA": "E6A9318B6D69",
+      "KeyB": "977F08CE2DDD",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block36": "read AB",
@@ -194,8 +315,13 @@
       }
     },
     "10": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "18516B4C2AAD",
       "KeyB": "2AE095503A15",
+========
+      "KeyA": "4C3DB8AC7673",
+      "KeyB": "8CC8D28FB55A",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block40": "read AB",
@@ -206,8 +332,13 @@
       }
     },
     "11": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "F14D69FF46DB",
       "KeyB": "79ADDA24459C",
+========
+      "KeyA": "8DA10D4A3B01",
+      "KeyB": "6BADA721A01F",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block44": "read AB",
@@ -218,8 +349,13 @@
       }
     },
     "12": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "765E13F89972",
       "KeyB": "6A65F95C277E",
+========
+      "KeyA": "A3290BEBFE3F",
+      "KeyB": "668569793517",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block48": "read AB",
@@ -230,8 +366,13 @@
       }
     },
     "13": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "AE8956311852",
       "KeyB": "B12CD040F899",
+========
+      "KeyA": "F2348EB75ADE",
+      "KeyB": "D4E6141B9E7F",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block52": "read AB",
@@ -242,8 +383,13 @@
       }
     },
     "14": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "ED18ACF9C6F4",
       "KeyB": "A540241B5AA4",
+========
+      "KeyA": "AF7C98D5E9D6",
+      "KeyB": "556CFE293715",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block56": "read AB",
@@ -254,8 +400,13 @@
       }
     },
     "15": {
+<<<<<<<< HEAD:TPU/TPU for AMS/Black/FEDB62BD/hf-mf-FEDB62BD-dump.json
       "KeyA": "D47DF1DB90E4",
       "KeyB": "57D21A440DCB",
+========
+      "KeyA": "333CD20E6A3F",
+      "KeyB": "EAB2E2AFCBAB",
+>>>>>>>> refs/remotes/net/NickWaterton/main:PLA/PLA Matte/Charcoal/770B642A/hf-mf-770B642A-dump.json
       "AccessConditions": "87878769",
       "AccessConditionsText": {
         "block60": "read AB",
