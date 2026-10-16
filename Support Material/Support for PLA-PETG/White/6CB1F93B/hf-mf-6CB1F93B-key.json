@@ -1,0 +1,73 @@
+{
+  "UID": "6CB1F93B",
+  "FileType": "mifare classic 1k keys",
+  "TotalSectors": 16,
+  "KeySizeBytes": 6,
+  "SectorKeys": {
+    "0": {
+      "KeyA": "0DA0A8B6D63C",
+      "KeyB": "AD05AF20CB48"
+    },
+    "1": {
+      "KeyA": "6CC615AB7296",
+      "KeyB": "A1FDE6A3A1FC"
+    },
+    "2": {
+      "KeyA": "634D07B9E77C",
+      "KeyB": "D554751C09FF"
+    },
+    "3": {
+      "KeyA": "68464E319C70",
+      "KeyB": "069652215596"
+    },
+    "4": {
+      "KeyA": "5D6F07DC3C23",
+      "KeyB": "A0CD897011FE"
+    },
+    "5": {
+      "KeyA": "724D685B2A66",
+      "KeyB": "79ECD7A2CF34"
+    },
+    "6": {
+      "KeyA": "48FFAE156A6F",
+      "KeyB": "EC3D53656D13"
+    },
+    "7": {
+      "KeyA": "4606DC583BE4",
+      "KeyB": "1087C344BB58"
+    },
+    "8": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "9": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "10": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "11": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "12": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "13": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "14": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    },
+    "15": {
+      "KeyA": "000000000000",
+      "KeyB": "000000000000"
+    }
+  },
+  "SourceFile": "Support Material/Support for PLA-PETG/White/6CB1F93B/hf-mf-6CB1F93B-key.bin"
+}

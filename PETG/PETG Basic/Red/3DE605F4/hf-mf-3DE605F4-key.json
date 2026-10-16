@@ -1,0 +1,73 @@
+{
+  "UID": "3DE605F4",
+  "FileType": "mifare classic 1k keys",
+  "TotalSectors": 16,
+  "KeySizeBytes": 6,
+  "SectorKeys": {
+    "0": {
+      "KeyA": "736B01748E64",
+      "KeyB": "9146267CC805"
+    },
+    "1": {
+      "KeyA": "7173C8737362",
+      "KeyB": "B818AE202384"
+    },
+    "2": {
+      "KeyA": "F04DF190DD23",
+      "KeyB": "4B17A8AB0A84"
+    },
+    "3": {
+      "KeyA": "F614C90F0BBD",
+      "KeyB": "220772E1C1C0"
+    },
+    "4": {
+      "KeyA": "42E636FC9AFB",
+      "KeyB": "BC03340C53FF"
+    },
+    "5": {
+      "KeyA": "A025D5531C53",
+      "KeyB": "4DDEF8AC2A78"
+    },
+    "6": {
+      "KeyA": "0B30DC0D3B13",
+      "KeyB": "9A5127CFC9B6"
+    },
+    "7": {
+      "KeyA": "8B7F2319EDD4",
+      "KeyB": "FDEC71087B54"
+    },
+    "8": {
+      "KeyA": "4A17DEB15D8E",
+      "KeyB": "300D12494A5D"
+    },
+    "9": {
+      "KeyA": "BFCF3397E843",
+      "KeyB": "6466336F82F9"
+    },
+    "10": {
+      "KeyA": "59FC87CAEE79",
+      "KeyB": "C4A500C3CFF8"
+    },
+    "11": {
+      "KeyA": "8E2B465A6340",
+      "KeyB": "5C98DF56BCE8"
+    },
+    "12": {
+      "KeyA": "E6A1D82CDF80",
+      "KeyB": "7ED748E001CD"
+    },
+    "13": {
+      "KeyA": "4D2BB8034198",
+      "KeyB": "91D3B23E617E"
+    },
+    "14": {
+      "KeyA": "53166E871D03",
+      "KeyB": "D7E4580E79BF"
+    },
+    "15": {
+      "KeyA": "465CD2067E15",
+      "KeyB": "DA207D37C9AB"
+    }
+  },
+  "SourceFile": "PETG/PETG Basic/Red/3DE605F4/hf-mf-3DE605F4-key.bin"
+}

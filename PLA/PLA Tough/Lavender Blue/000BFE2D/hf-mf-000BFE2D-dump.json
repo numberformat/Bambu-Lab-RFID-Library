@@ -78,11 +78,11 @@
       "KeyB": "4CDC146C9841",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block0": "read AB",
         "block1": "read AB",
         "block2": "read AB",
-        "block3": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block3": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "1": {
@@ -90,11 +90,11 @@
       "KeyB": "41680E29AB11",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block4": "read AB",
         "block5": "read AB",
         "block6": "read AB",
-        "block7": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block7": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "2": {
@@ -102,11 +102,11 @@
       "KeyB": "DC3239455986",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block8": "read AB",
         "block9": "read AB",
         "block10": "read AB",
-        "block11": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block11": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "3": {
@@ -114,11 +114,11 @@
       "KeyB": "EFFA1C612614",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block12": "read AB",
         "block13": "read AB",
         "block14": "read AB",
-        "block15": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block15": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "4": {
@@ -126,11 +126,11 @@
       "KeyB": "D443115DE717",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block16": "read AB",
         "block17": "read AB",
         "block18": "read AB",
-        "block19": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block19": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "5": {
@@ -138,11 +138,11 @@
       "KeyB": "300AA12C7420",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block20": "read AB",
         "block21": "read AB",
         "block22": "read AB",
-        "block23": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block23": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "6": {
@@ -150,11 +150,11 @@
       "KeyB": "C5728D40D51F",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block24": "read AB",
         "block25": "read AB",
         "block26": "read AB",
-        "block27": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block27": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "7": {
@@ -162,11 +162,11 @@
       "KeyB": "FDFB2CE25265",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block28": "read AB",
         "block29": "read AB",
         "block30": "read AB",
-        "block31": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block31": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "8": {
@@ -174,11 +174,11 @@
       "KeyB": "3E11A009F9E2",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block32": "read AB",
         "block33": "read AB",
         "block34": "read AB",
-        "block35": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block35": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "9": {
@@ -186,11 +186,11 @@
       "KeyB": "C3F40D016E23",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block36": "read AB",
         "block37": "read AB",
         "block38": "read AB",
-        "block39": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block39": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "10": {
@@ -198,11 +198,11 @@
       "KeyB": "21BD53DE458A",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block40": "read AB",
         "block41": "read AB",
         "block42": "read AB",
-        "block43": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block43": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "11": {
@@ -210,11 +210,11 @@
       "KeyB": "312B1BABDCC6",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block44": "read AB",
         "block45": "read AB",
         "block46": "read AB",
-        "block47": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block47": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "12": {
@@ -222,11 +222,11 @@
       "KeyB": "F33BF3E25ED5",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block48": "read AB",
         "block49": "read AB",
         "block50": "read AB",
-        "block51": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block51": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "13": {
@@ -234,11 +234,11 @@
       "KeyB": "7F9D2C9561DE",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block52": "read AB",
         "block53": "read AB",
         "block54": "read AB",
-        "block55": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block55": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "14": {
@@ -246,11 +246,11 @@
       "KeyB": "FF57A04A9E54",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block56": "read AB",
         "block57": "read AB",
         "block58": "read AB",
-        "block59": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block59": "read ACCESS by AB; write ACCESS by B"
       }
     },
     "15": {
@@ -258,11 +258,11 @@
       "KeyB": "E6942AB40652",
       "AccessConditions": "87878769",
       "AccessConditionsText": {
+        "UserData": "69",
         "block60": "read AB",
         "block61": "read AB",
         "block62": "read AB",
-        "block63": "read ACCESS by AB; write ACCESS by B",
-        "UserData": "69"
+        "block63": "read ACCESS by AB; write ACCESS by B"
       }
     }
   }
