@@ -796,7 +796,7 @@ class Audit:
 				self.report("WARNING", "DUPLICATE_UID", next(iter(records)).path, f"UID {uid} appears in multiple directories with identical or compatible data", {"uid": uid, "paths": paths})
 		for location, colors in self.category_colors.items():
 			if len(colors) > 1:
-				self.report("ERROR", "COLOR_CONFLICT", self.root.joinpath(*location), "Tags in the same color directory contain multiple parsed color values", {"colors": {k: v for k, v in colors.items()}})
+				self.report("WARNING", "COLOR_CONFLICT", self.root.joinpath(*location), "Tags in the same color directory contain multiple parsed color values", {"colors": {k: v for k, v in colors.items()}})
 		for location, ids in self.material_ids.items():
 			if len(ids) > 1:
 				self.report("WARNING", "MATERIAL_ID_CONFLICT", self.root.joinpath(*location), "Tags in the same color directory contain multiple material identifiers", {"material_ids": {k: v for k, v in ids.items()}})
