@@ -710,6 +710,8 @@ class Audit:
 		mismatches = []
 		for block_index in range(min(len(left_blocks), len(right_blocks))):
 			for byte_index, expected in enumerate(left_known[block_index]):
+				if block_index % 4 == 3 and byte_index in (6, 7, 8):
+					continue  # Access-condition bytes can vary between compatible captures.
 				actual = right_known[block_index][byte_index]
 				if expected is not None and actual is not None and expected != actual:
 					mismatches.append({"block": block_index, "byte": byte_index})
@@ -763,6 +765,8 @@ class Audit:
 			return False
 		for block_index in range(min(len(left.blocks), len(right.blocks))):
 			for byte_index in range(BYTES_PER_BLOCK):
+				if block_index % 4 == 3 and byte_index in (6, 7, 8):
+					continue  # Access-condition bytes can vary between compatible captures.
 				a = left.known[block_index][byte_index]
 				b = right.known[block_index][byte_index]
 				if a is not None and b is not None and a != b:
