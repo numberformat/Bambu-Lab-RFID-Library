@@ -1,0 +1,50 @@
+name: Import quality-checked tags from fork network
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      scan_all:
+        description: Scan forks with older pushes too
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: network-tag-import
+  cancel-in-progress: false
+
+jobs:
+  import-tags:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Find and validate new tags in the fork network
+        id: import
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SCAN_ALL: ${{ inputs.scan_all }}
+        run: python .github/scripts/import_fork_network_tags.py
+
+      - name: Commit and push accepted tags to main
+        if: steps.import.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data: import quality-checked RFID tags from fork network'
+          git push origin HEAD:main

@@ -1,0 +1,37 @@
+name: RFID Library Integrity
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+
+      - name: Compile Python tooling
+        run: python -m compileall -q .
+
+      - name: Run auditor tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run existing library checker
+        run: python library_checker.py
+
+      - name: Run full repository audit
+        run: python audit_library.py

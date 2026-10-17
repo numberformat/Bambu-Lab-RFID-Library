@@ -34,6 +34,8 @@ CATEGORY_MAP = {
 	'PA-CF': 'PA',
 	'ASA-CF': 'ASA',
 	'ASA Aero': 'ASA',
+	'ASA-AERO': 'ASA',
+	'PA-GF': 'PA',
 }
 
 MATERIAL_MAP = {
@@ -42,11 +44,13 @@ MATERIAL_MAP = {
 	'Support G': ['Support for PA-PET'],
 	'Support W': ['Support for PLA-PETG'],
 	'Support for PLA': ['Support for PLA (New Version)', 'Support for PLA-PETG'],
+	'Support For PLA': ['Support for PLA-PETG'],
 	'PETG-CF': ['PETG CF'],
 	'PETG HF': ['PETG Translucent'],
 	'PLA Basic': [ 'PLA Basic Gradient', 'PLA Silk Multi-Color'],
 	'PLA Silk': ['PLA Silk Multi-Color'],
 	'PLA': ['PLA Silk Multi-Color'],
+	'ABS': ['ABS-GF'],
 }
 
 def load_library(print_error=False, debug_color=None):

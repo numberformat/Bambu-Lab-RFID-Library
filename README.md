@@ -14,7 +14,19 @@ For more information about Bambu Lab RFID tags and their format, see https://git
 A script is included in this repository, `parse.py`, that will parse a tag dump and extract its information in an easy-to-read terminal output and easy-to-parse JSON format. To run it, simply run `python3 parse.py [/path/to/tag.bin-or-json]`.
 
 > [!NOTE]
-> Python 3.6 or higher is required to run scripts.
+> Python 3.8 or higher is required to run the current scripts.
+
+## Integrity Checking
+
+Run the read-only repository audit from the project root to check dump validity, UID and directory consistency, keys, JSON and Flipper NFC representations, duplicate entries, and accidental merge artifacts:
+
+```bash
+python3 audit_library.py
+python3 audit_library.py --verbose
+python3 audit_library.py --json audit-report.json
+```
+
+The audit does not modify tag files. Errors make the command exit with status `1`; warnings and informational findings are reported without failing the default audit. Use `--strict` to promote warnings to errors, `--only-errors` to shorten terminal output, or `--path "PLA/PLA Basic"` to limit the scan. Missing generated files such as JSON, key, or NFC companions are informational because historical contributions do not always include every representation.
 
 ## Contributing
 
