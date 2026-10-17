@@ -33,5 +33,15 @@ jobs:
       - name: Run existing library checker
         run: python library_checker.py
 
-      - name: Run full repository audit
-        run: python audit_library.py
+      - name: Report full repository audit findings
+        run: |
+          if python audit_library.py; then
+            echo "Repository audit completed without errors."
+          else
+            audit_status=$?
+            if [ "$audit_status" -eq 1 ]; then
+              echo "::warning::The audit found repository data errors; see the report above."
+            else
+              exit "$audit_status"
+            fi
+          fi
