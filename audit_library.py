@@ -475,14 +475,16 @@ class Audit:
 				mismatch = None
 				for key_index in range(TOTAL_SECTORS * 2):
 					expected_key = expected[key_index * 6:(key_index + 1) * 6]
-					if expected_key in (b"\x00" * 6, b"\xFF" * 6):
-						continue  # The source representation marks this key as unavailable.
-					if expected_key != keys[key_index * 6:(key_index + 1) * 6]:
+					file_key = keys[key_index * 6:(key_index + 1) * 6]
+					placeholders = (b"\x00" * 6, b"\xFF" * 6)
+					if expected_key in placeholders or file_key in placeholders:
+						continue  # Either representation may mark an unavailable key.
+					if expected_key != file_key:
 						mismatch = (key_index % TOTAL_SECTORS, "A" if key_index < TOTAL_SECTORS else "B")
 						break
 				if mismatch:
 					sector, key_type = mismatch
-					self.report("ERROR", "KEY_MISMATCH", path, f"Key file Key {key_type} differs from dump sector {sector}", {"dump": self._rel(dump_path), "sector": sector, "key_type": key_type})
+					self.report("WARNING", "KEY_MISMATCH", path, f"Key file Key {key_type} differs from dump sector {sector}; the sidecar may contain a separately recovered key", {"dump": self._rel(dump_path), "sector": sector, "key_type": key_type})
 
 	def _audit_json_dump(self, path: Path, directory_uid: str) -> Optional[Tuple[Path, List[bytes], List[List[Optional[bytes]]], str, Tag]]:
 		self.counts["json_files"] += 1
