@@ -28,6 +28,7 @@ from parse import (
 
 
 UID_RE = re.compile(r"^[0-9A-Fa-f]{8}$")
+LEGACY_UID_DIRECTORY_RE = re.compile(r"^([0-9A-Fa-f]{8}) - 250g$")
 HEX_UIDS_RE = re.compile(r"(?<![0-9A-Fa-f])[0-9A-Fa-f]{8}(?![0-9A-Fa-f])")
 HEX_BLOCK_RE = re.compile(r"^(?:[0-9A-Fa-f]{2}|\?\?){16}$")
 CONFLICT_RE = re.compile(r"^(?:<<<<<<<|=======|>>>>>>>|\|\|\|\|\|\|\|)(?:\s|$)")
@@ -241,10 +242,17 @@ class Audit:
 	def _audit_uid_directory(self, path: Path, filenames: Sequence[str], child_dirs: Sequence[str]) -> None:
 		self.counts["uid_directories"] += 1
 		uid_dir = path.name
-		if not UID_RE.fullmatch(uid_dir):
+		legacy_match = LEGACY_UID_DIRECTORY_RE.fullmatch(uid_dir)
+		if UID_RE.fullmatch(uid_dir):
+			directory_uid = uid_dir.upper()
+			if uid_dir != uid_dir.upper():
+				self.report("INFO", "NONCANONICAL_UID_CASE", path, "UID directory uses lowercase hexadecimal characters")
+		elif legacy_match:
+			directory_uid = legacy_match.group(1).upper()
+			self.report("WARNING", "NONCANONICAL_UID_DIRECTORY", path, "Legacy UID directory includes a ' - 250g' annotation; the embedded 8-digit UID is still checked")
+		else:
+			directory_uid = ""
 			self.report("ERROR", "BAD_UID_DIRECTORY", path, "UID directory name must contain exactly 8 hexadecimal characters")
-		elif uid_dir != uid_dir.upper():
-			self.report("INFO", "NONCANONICAL_UID_CASE", path, "UID directory uses lowercase hexadecimal characters")
 		parts = path.relative_to(self.root).parts
 		if len(parts) >= 4 and parts[-2] == parts[-3]:
 			self.report("ERROR", "DUPLICATED_DIRECTORY_LEVEL", path, "Material and color directory names are identical")
@@ -265,7 +273,7 @@ class Audit:
 		for file_path in files:
 			name = file_path.name
 			if file_path.suffix.lower() in {".bin", ".json", ".nfc"}:
-				self._check_filename_uid(file_path, uid_dir)
+				self._check_filename_uid(file_path, directory_uid)
 			if file_path.suffix.lower() == ".bin":
 				if name.lower().endswith("-dump.bin"):
 					tag, raw, warnings = self._parse_tag_file(file_path, "INVALID_DUMP", count="valid_dumps")
@@ -273,8 +281,8 @@ class Audit:
 						digest = hashlib.sha256(raw).hexdigest()
 						valid_dumps.append((file_path, tag, raw, digest))
 						self.dump_hashes[digest].append((tag.data["uid"], self._rel(file_path), file_path))
-						if UID_RE.fullmatch(uid_dir) and tag.data["uid"].upper() != uid_dir.upper():
-							self.report("ERROR", "UID_MISMATCH", file_path, "UID parsed from dump block 0 does not match its UID directory", {"directory_uid": uid_dir.upper(), "dump_uid": tag.data["uid"].upper()})
+						if directory_uid and tag.data["uid"].upper() != directory_uid:
+							self.report("ERROR", "UID_MISMATCH", file_path, "UID parsed from dump block 0 does not match its UID directory", {"directory_uid": directory_uid, "dump_uid": tag.data["uid"].upper()})
 						self._check_block_zero(file_path, tag)
 						self._check_metadata(file_path, tag, path)
 						self._check_location(file_path, tag, parts)
@@ -287,7 +295,7 @@ class Audit:
 					self.report("WARNING", "UNKNOWN_FILE", file_path, "Binary file is not named as a recognized dump or key file")
 			elif file_path.suffix.lower() == ".json":
 				if re.search(r"-dump(?:-?\d+)?-dump\.json$", name, re.IGNORECASE) or name.lower().endswith("-dump.json"):
-					record = self._audit_json_dump(file_path, uid_dir)
+					record = self._audit_json_dump(file_path, directory_uid)
 					if record:
 						valid_json.append(record)
 				else:
@@ -297,7 +305,7 @@ class Audit:
 					else:
 						self.report("WARNING", "UNKNOWN_FILE", file_path, "JSON file is not a recognized dump or known auxiliary sidecar")
 			elif file_path.suffix.lower() == ".nfc":
-				record = self._audit_nfc(file_path, uid_dir)
+				record = self._audit_nfc(file_path, directory_uid)
 				if record:
 					valid_nfc.append(record)
 				self.counts["nfc_files"] += 1
@@ -316,7 +324,7 @@ class Audit:
 		if not key_sources:
 			key_sources.extend((source_path, blocks) for source_path, blocks, _, _, _ in valid_json)
 		for key_path in key_files:
-			self._audit_key_file(key_path, key_sources, uid_dir)
+			self._audit_key_file(key_path, key_sources, directory_uid)
 
 		for source_path, tag, raw, digest in valid_dumps:
 			self._add_record(tag.data["uid"], source_path, path, digest, tag.blocks, tag.data, self._known_binary_blocks(tag.blocks))
