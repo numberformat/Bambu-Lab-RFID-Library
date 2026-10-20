@@ -29,6 +29,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Configure bot identity
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Merge canonical upstream main
+        run: |
+          git remote add upstream https://github.com/queengooborg/Bambu-Lab-RFID-Library.git
+          git fetch upstream main
+          git merge --no-edit FETCH_HEAD
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -44,7 +55,7 @@ jobs:
       - name: Commit and push accepted tags to main
         if: steps.import.outputs.changed == 'true'
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'data: import quality-checked RFID tags from fork network'
-          git push origin HEAD:main
+
+      - name: Push upstream sync and accepted tags to main
+        run: git push origin HEAD:main
